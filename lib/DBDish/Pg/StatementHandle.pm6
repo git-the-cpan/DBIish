@@ -79,7 +79,7 @@ method rows() {
 method _row(:$hash) {
     my @row_array;
     my %ret_hash;
-    return Any if $!current_row >= $!row_count;
+    return $hash ?? Hash !! Array if $!current_row >= $!row_count;
 
     unless defined $!field_count {
         $!field_count = PQnfields($!result);
@@ -115,13 +115,13 @@ method _row(:$hash) {
                   $value = $res.Real
                 }
                 when 'Array<Int>' {
-                  $value = _pg-to-array( $res, 'Int' );
+                  $value := _pg-to-array( $res, 'Int' );
                 }
                 when 'Array<Str>' {
-                  $value = _pg-to-array( $res, 'Str' );
+                  $value := _pg-to-array( $res, 'Str' );
                 }
                 when 'Array<Num>' {
-                  $value = _pg-to-array( $res, 'Num' );
+                  $value := _pg-to-array( $res, 'Num' );
                 }
                 default {
                   $value = $res;

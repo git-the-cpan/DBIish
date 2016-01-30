@@ -28,6 +28,6 @@
    "support" : {
       "source" : "git://github.com/perl6/DBIish.git"
    },
-   "version" : "0.000.002_1601022004",
+   "version" : "0.000.002_1601301941",
    "version_from_original_meta" : "*"
 }
